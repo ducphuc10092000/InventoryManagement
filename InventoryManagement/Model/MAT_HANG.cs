@@ -14,6 +14,14 @@ namespace InventoryManagement.Model
     
     public partial class MAT_HANG
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MAT_HANG()
+        {
+            this.CT_HOA_DON_NHAP = new HashSet<CT_HOA_DON_NHAP>();
+            this.CT_HOA_DON_XUAT = new HashSet<CT_HOA_DON_XUAT>();
+            this.CT_PHIEU_CHUYEN_KHO = new HashSet<CT_PHIEU_CHUYEN_KHO>();
+        }
+    
         public string TEN_MAT_HANG { get; set; }
         public Nullable<int> ID_DVT { get; set; }
         public Nullable<int> ID_LMH { get; set; }
@@ -24,6 +32,12 @@ namespace InventoryManagement.Model
         public Nullable<bool> ACTIVE { get; set; }
         public int ID_MAT_HANG { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_HOA_DON_NHAP> CT_HOA_DON_NHAP { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_HOA_DON_XUAT> CT_HOA_DON_XUAT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_PHIEU_CHUYEN_KHO> CT_PHIEU_CHUYEN_KHO { get; set; }
         public virtual DON_VI_TINH DON_VI_TINH { get; set; }
         public virtual LOAI_MAT_HANG LOAI_MAT_HANG { get; set; }
     }

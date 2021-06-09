@@ -25,10 +25,19 @@ namespace InventoryManagement.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CT_HOA_DON_NHAP> CT_HOA_DON_NHAP { get; set; }
+        public virtual DbSet<CT_HOA_DON_XUAT> CT_HOA_DON_XUAT { get; set; }
+        public virtual DbSet<CT_PHIEU_CHUYEN_KHO> CT_PHIEU_CHUYEN_KHO { get; set; }
         public virtual DbSet<DON_VI_TINH> DON_VI_TINH { get; set; }
+        public virtual DbSet<HOA_DON_NHAP> HOA_DON_NHAP { get; set; }
+        public virtual DbSet<HOA_DON_XUAT> HOA_DON_XUAT { get; set; }
+        public virtual DbSet<KHACH_HANG> KHACH_HANG { get; set; }
+        public virtual DbSet<KHO> KHOes { get; set; }
         public virtual DbSet<LOAI_MAT_HANG> LOAI_MAT_HANG { get; set; }
         public virtual DbSet<LOAI_TAI_KHOAN> LOAI_TAI_KHOAN { get; set; }
         public virtual DbSet<MAT_HANG> MAT_HANG { get; set; }
+        public virtual DbSet<NHA_CUNG_CAP> NHA_CUNG_CAP { get; set; }
+        public virtual DbSet<PHIEU_CHUYEN_KHO> PHIEU_CHUYEN_KHO { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
     }

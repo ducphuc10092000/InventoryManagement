@@ -12,28 +12,26 @@ namespace InventoryManagement.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class TAI_KHOAN
+    public partial class KHO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TAI_KHOAN()
+        public KHO()
         {
             this.HOA_DON_NHAP = new HashSet<HOA_DON_NHAP>();
-            this.HOA_DON_XUAT = new HashSet<HOA_DON_XUAT>();
             this.PHIEU_CHUYEN_KHO = new HashSet<PHIEU_CHUYEN_KHO>();
+            this.PHIEU_CHUYEN_KHO1 = new HashSet<PHIEU_CHUYEN_KHO>();
         }
     
-        public int ID_TK { get; set; }
-        public Nullable<int> ID_LTK { get; set; }
-        public string TEN_DANG_NHAP { get; set; }
-        public string MAT_KHAU { get; set; }
-        public string GHI_CHU { get; set; }
+        public int ID_KHO { get; set; }
+        public string TEN_KHO { get; set; }
+        public string TONG_GIA_TRI { get; set; }
+        public string DIA_CHI_KHO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOA_DON_NHAP> HOA_DON_NHAP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOA_DON_XUAT> HOA_DON_XUAT { get; set; }
-        public virtual LOAI_TAI_KHOAN LOAI_TAI_KHOAN { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEU_CHUYEN_KHO> PHIEU_CHUYEN_KHO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHIEU_CHUYEN_KHO> PHIEU_CHUYEN_KHO1 { get; set; }
     }
 }

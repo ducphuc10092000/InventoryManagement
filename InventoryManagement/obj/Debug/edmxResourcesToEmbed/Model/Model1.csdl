@@ -1,15 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="INVENTORY_MANAGEMENTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="INVENTORY_MANAGEMENTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CT_HOA_DON_NHAP" EntityType="INVENTORY_MANAGEMENTModel.CT_HOA_DON_NHAP" />
+    <EntitySet Name="CT_HOA_DON_XUAT" EntityType="INVENTORY_MANAGEMENTModel.CT_HOA_DON_XUAT" />
+    <EntitySet Name="CT_PHIEU_CHUYEN_KHO" EntityType="INVENTORY_MANAGEMENTModel.CT_PHIEU_CHUYEN_KHO" />
     <EntitySet Name="DON_VI_TINH" EntityType="INVENTORY_MANAGEMENTModel.DON_VI_TINH" />
+    <EntitySet Name="HOA_DON_NHAP" EntityType="INVENTORY_MANAGEMENTModel.HOA_DON_NHAP" />
+    <EntitySet Name="HOA_DON_XUAT" EntityType="INVENTORY_MANAGEMENTModel.HOA_DON_XUAT" />
+    <EntitySet Name="KHACH_HANG" EntityType="INVENTORY_MANAGEMENTModel.KHACH_HANG" />
+    <EntitySet Name="KHOes" EntityType="INVENTORY_MANAGEMENTModel.KHO" />
     <EntitySet Name="LOAI_MAT_HANG" EntityType="INVENTORY_MANAGEMENTModel.LOAI_MAT_HANG" />
     <EntitySet Name="LOAI_TAI_KHOAN" EntityType="INVENTORY_MANAGEMENTModel.LOAI_TAI_KHOAN" />
     <EntitySet Name="MAT_HANG" EntityType="INVENTORY_MANAGEMENTModel.MAT_HANG" />
+    <EntitySet Name="NHA_CUNG_CAP" EntityType="INVENTORY_MANAGEMENTModel.NHA_CUNG_CAP" />
+    <EntitySet Name="PHIEU_CHUYEN_KHO" EntityType="INVENTORY_MANAGEMENTModel.PHIEU_CHUYEN_KHO" />
     <EntitySet Name="sysdiagrams" EntityType="INVENTORY_MANAGEMENTModel.sysdiagram" />
     <EntitySet Name="TAI_KHOAN" EntityType="INVENTORY_MANAGEMENTModel.TAI_KHOAN" />
+    <AssociationSet Name="fk_CT_HOA_DN_NHAP_MAT_HANG" Association="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DN_NHAP_MAT_HANG">
+      <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+      <End Role="CT_HOA_DON_NHAP" EntitySet="CT_HOA_DON_NHAP" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CT_HOA_DON_NHAP_HOA_DON_NHAP" Association="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DON_NHAP_HOA_DON_NHAP">
+      <End Role="HOA_DON_NHAP" EntitySet="HOA_DON_NHAP" />
+      <End Role="CT_HOA_DON_NHAP" EntitySet="CT_HOA_DON_NHAP" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CT_HOA_DON_XUAT_HOA_DON_XUAT" Association="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DON_XUAT_HOA_DON_XUAT">
+      <End Role="HOA_DON_XUAT" EntitySet="HOA_DON_XUAT" />
+      <End Role="CT_HOA_DON_XUAT" EntitySet="CT_HOA_DON_XUAT" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CT_HOA_DON_XUAT_MAT_HANG" Association="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DON_XUAT_MAT_HANG">
+      <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+      <End Role="CT_HOA_DON_XUAT" EntitySet="CT_HOA_DON_XUAT" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CT_PHIEU_CHUYEN_KHO_MAT_HANG" Association="INVENTORY_MANAGEMENTModel.fk_CT_PHIEU_CHUYEN_KHO_MAT_HANG">
+      <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+      <End Role="CT_PHIEU_CHUYEN_KHO" EntitySet="CT_PHIEU_CHUYEN_KHO" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CT_PHIEU_CHUYEN_KHO_PHIEU_CHUYEN_KHO" Association="INVENTORY_MANAGEMENTModel.fk_CT_PHIEU_CHUYEN_KHO_PHIEU_CHUYEN_KHO">
+      <End Role="PHIEU_CHUYEN_KHO" EntitySet="PHIEU_CHUYEN_KHO" />
+      <End Role="CT_PHIEU_CHUYEN_KHO" EntitySet="CT_PHIEU_CHUYEN_KHO" />
+    </AssociationSet>
     <AssociationSet Name="fk_MAT_HANG_DVT" Association="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_DVT">
       <End Role="DON_VI_TINH" EntitySet="DON_VI_TINH" />
       <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+    </AssociationSet>
+    <AssociationSet Name="fk_HOA_DON_NHAP_KHO_NHAP" Association="INVENTORY_MANAGEMENTModel.fk_HOA_DON_NHAP_KHO_NHAP">
+      <End Role="KHO" EntitySet="KHOes" />
+      <End Role="HOA_DON_NHAP" EntitySet="HOA_DON_NHAP" />
+    </AssociationSet>
+    <AssociationSet Name="fk_HOA_DON_NHAP_NCC" Association="INVENTORY_MANAGEMENTModel.fk_HOA_DON_NHAP_NCC">
+      <End Role="NHA_CUNG_CAP" EntitySet="NHA_CUNG_CAP" />
+      <End Role="HOA_DON_NHAP" EntitySet="HOA_DON_NHAP" />
+    </AssociationSet>
+    <AssociationSet Name="fk_HOA_DON_NHAP_NGUOI_NHAP" Association="INVENTORY_MANAGEMENTModel.fk_HOA_DON_NHAP_NGUOI_NHAP">
+      <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+      <End Role="HOA_DON_NHAP" EntitySet="HOA_DON_NHAP" />
+    </AssociationSet>
+    <AssociationSet Name="fk_HOA_DON_XUAT_NGUOI_NHAN" Association="INVENTORY_MANAGEMENTModel.fk_HOA_DON_XUAT_NGUOI_NHAN">
+      <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+      <End Role="HOA_DON_XUAT" EntitySet="HOA_DON_XUAT" />
+    </AssociationSet>
+    <AssociationSet Name="fk_HOA_DON_XUAT_NGUOI_XUAT" Association="INVENTORY_MANAGEMENTModel.fk_HOA_DON_XUAT_NGUOI_XUAT">
+      <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+      <End Role="HOA_DON_XUAT" EntitySet="HOA_DON_XUAT" />
+    </AssociationSet>
+    <AssociationSet Name="fk_PHIEU_CHUYEN_KHO_KHO_NHAN" Association="INVENTORY_MANAGEMENTModel.fk_PHIEU_CHUYEN_KHO_KHO_NHAN">
+      <End Role="KHO" EntitySet="KHOes" />
+      <End Role="PHIEU_CHUYEN_KHO" EntitySet="PHIEU_CHUYEN_KHO" />
+    </AssociationSet>
+    <AssociationSet Name="fk_PHIEU_CHUYEN_KHO_KHO_XUAT" Association="INVENTORY_MANAGEMENTModel.fk_PHIEU_CHUYEN_KHO_KHO_XUAT">
+      <End Role="KHO" EntitySet="KHOes" />
+      <End Role="PHIEU_CHUYEN_KHO" EntitySet="PHIEU_CHUYEN_KHO" />
     </AssociationSet>
     <AssociationSet Name="fk_MAT_HANG_LMH" Association="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_LMH">
       <End Role="LOAI_MAT_HANG" EntitySet="LOAI_MAT_HANG" />
@@ -19,7 +80,47 @@
       <End Role="LOAI_TAI_KHOAN" EntitySet="LOAI_TAI_KHOAN" />
       <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
     </AssociationSet>
+    <AssociationSet Name="fk_PHIEU_CHUYEN_KHO_NGUOI_XUAT" Association="INVENTORY_MANAGEMENTModel.fk_PHIEU_CHUYEN_KHO_NGUOI_XUAT">
+      <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+      <End Role="PHIEU_CHUYEN_KHO" EntitySet="PHIEU_CHUYEN_KHO" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="CT_HOA_DON_NHAP">
+    <Key>
+      <PropertyRef Name="ID_HOA_DON_NHAP" />
+      <PropertyRef Name="ID_MAT_HANG" />
+    </Key>
+    <Property Name="ID_HOA_DON_NHAP" Type="Int32" Nullable="false" />
+    <Property Name="ID_MAT_HANG" Type="Int32" Nullable="false" />
+    <Property Name="SO_LUONG" Type="Int32" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MAT_HANG" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DN_NHAP_MAT_HANG" FromRole="CT_HOA_DON_NHAP" ToRole="MAT_HANG" />
+    <NavigationProperty Name="HOA_DON_NHAP" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DON_NHAP_HOA_DON_NHAP" FromRole="CT_HOA_DON_NHAP" ToRole="HOA_DON_NHAP" />
+  </EntityType>
+  <EntityType Name="CT_HOA_DON_XUAT">
+    <Key>
+      <PropertyRef Name="ID_HOA_DON_XUAT" />
+      <PropertyRef Name="ID_MAT_HANG" />
+    </Key>
+    <Property Name="ID_HOA_DON_XUAT" Type="Int32" Nullable="false" />
+    <Property Name="ID_MAT_HANG" Type="Int32" Nullable="false" />
+    <Property Name="SO_LUONG" Type="Int32" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOA_DON_XUAT" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DON_XUAT_HOA_DON_XUAT" FromRole="CT_HOA_DON_XUAT" ToRole="HOA_DON_XUAT" />
+    <NavigationProperty Name="MAT_HANG" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DON_XUAT_MAT_HANG" FromRole="CT_HOA_DON_XUAT" ToRole="MAT_HANG" />
+  </EntityType>
+  <EntityType Name="CT_PHIEU_CHUYEN_KHO">
+    <Key>
+      <PropertyRef Name="ID_PHIEU_CHUYEN_KHO" />
+      <PropertyRef Name="ID_MAT_HANG" />
+    </Key>
+    <Property Name="ID_PHIEU_CHUYEN_KHO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_MAT_HANG" Type="Int32" Nullable="false" />
+    <Property Name="SO_LUONG" Type="Int32" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MAT_HANG" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_PHIEU_CHUYEN_KHO_MAT_HANG" FromRole="CT_PHIEU_CHUYEN_KHO" ToRole="MAT_HANG" />
+    <NavigationProperty Name="PHIEU_CHUYEN_KHO" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_PHIEU_CHUYEN_KHO_PHIEU_CHUYEN_KHO" FromRole="CT_PHIEU_CHUYEN_KHO" ToRole="PHIEU_CHUYEN_KHO" />
+  </EntityType>
   <EntityType Name="DON_VI_TINH">
     <Key>
       <PropertyRef Name="ID_DVT" />
@@ -28,6 +129,59 @@
     <Property Name="TEN_DVT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="MAT_HANG" Relationship="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_DVT" FromRole="DON_VI_TINH" ToRole="MAT_HANG" />
+  </EntityType>
+  <EntityType Name="HOA_DON_NHAP">
+    <Key>
+      <PropertyRef Name="ID_HOA_DON_NHAP" />
+    </Key>
+    <Property Name="ID_HOA_DON_NHAP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_KHO_NHAP" Type="Int32" />
+    <Property Name="ID_NCC" Type="Int32" />
+    <Property Name="ID_NGUOI_NHAP_HANG" Type="Int32" />
+    <Property Name="THOI_GIAN_NHAP" Type="DateTime" Precision="3" />
+    <Property Name="TONG_TIEN" Type="Double" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CT_HOA_DON_NHAP" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DON_NHAP_HOA_DON_NHAP" FromRole="HOA_DON_NHAP" ToRole="CT_HOA_DON_NHAP" />
+    <NavigationProperty Name="KHO" Relationship="INVENTORY_MANAGEMENTModel.fk_HOA_DON_NHAP_KHO_NHAP" FromRole="HOA_DON_NHAP" ToRole="KHO" />
+    <NavigationProperty Name="NHA_CUNG_CAP" Relationship="INVENTORY_MANAGEMENTModel.fk_HOA_DON_NHAP_NCC" FromRole="HOA_DON_NHAP" ToRole="NHA_CUNG_CAP" />
+    <NavigationProperty Name="TAI_KHOAN" Relationship="INVENTORY_MANAGEMENTModel.fk_HOA_DON_NHAP_NGUOI_NHAP" FromRole="HOA_DON_NHAP" ToRole="TAI_KHOAN" />
+  </EntityType>
+  <EntityType Name="HOA_DON_XUAT">
+    <Key>
+      <PropertyRef Name="ID_HOA_DON_XUAT" />
+    </Key>
+    <Property Name="ID_HOA_DON_XUAT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_NGUOI_NHAN" Type="Int32" />
+    <Property Name="ID_NGUOI_XUAT_HANG" Type="Int32" />
+    <Property Name="THOI_GIAN_XUAT" Type="DateTime" Precision="3" />
+    <Property Name="TONG_TIEN" Type="Double" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CT_HOA_DON_XUAT" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DON_XUAT_HOA_DON_XUAT" FromRole="HOA_DON_XUAT" ToRole="CT_HOA_DON_XUAT" />
+    <NavigationProperty Name="KHACH_HANG" Relationship="INVENTORY_MANAGEMENTModel.fk_HOA_DON_XUAT_NGUOI_NHAN" FromRole="HOA_DON_XUAT" ToRole="KHACH_HANG" />
+    <NavigationProperty Name="TAI_KHOAN" Relationship="INVENTORY_MANAGEMENTModel.fk_HOA_DON_XUAT_NGUOI_XUAT" FromRole="HOA_DON_XUAT" ToRole="TAI_KHOAN" />
+  </EntityType>
+  <EntityType Name="KHACH_HANG">
+    <Key>
+      <PropertyRef Name="ID_KH" />
+    </Key>
+    <Property Name="ID_KH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_KH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DIA_CHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOA_DON_XUAT" Relationship="INVENTORY_MANAGEMENTModel.fk_HOA_DON_XUAT_NGUOI_NHAN" FromRole="KHACH_HANG" ToRole="HOA_DON_XUAT" />
+  </EntityType>
+  <EntityType Name="KHO">
+    <Key>
+      <PropertyRef Name="ID_KHO" />
+    </Key>
+    <Property Name="ID_KHO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_KHO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TONG_GIA_TRI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DIA_CHI_KHO" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOA_DON_NHAP" Relationship="INVENTORY_MANAGEMENTModel.fk_HOA_DON_NHAP_KHO_NHAP" FromRole="KHO" ToRole="HOA_DON_NHAP" />
+    <NavigationProperty Name="PHIEU_CHUYEN_KHO" Relationship="INVENTORY_MANAGEMENTModel.fk_PHIEU_CHUYEN_KHO_KHO_NHAN" FromRole="KHO" ToRole="PHIEU_CHUYEN_KHO" />
+    <NavigationProperty Name="PHIEU_CHUYEN_KHO1" Relationship="INVENTORY_MANAGEMENTModel.fk_PHIEU_CHUYEN_KHO_KHO_XUAT" FromRole="KHO" ToRole="PHIEU_CHUYEN_KHO" />
   </EntityType>
   <EntityType Name="LOAI_MAT_HANG">
     <Key>
@@ -60,8 +214,36 @@
     <Property Name="AVATAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ACTIVE" Type="Boolean" />
     <Property Name="ID_MAT_HANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="CT_HOA_DON_NHAP" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DN_NHAP_MAT_HANG" FromRole="MAT_HANG" ToRole="CT_HOA_DON_NHAP" />
+    <NavigationProperty Name="CT_HOA_DON_XUAT" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_HOA_DON_XUAT_MAT_HANG" FromRole="MAT_HANG" ToRole="CT_HOA_DON_XUAT" />
+    <NavigationProperty Name="CT_PHIEU_CHUYEN_KHO" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_PHIEU_CHUYEN_KHO_MAT_HANG" FromRole="MAT_HANG" ToRole="CT_PHIEU_CHUYEN_KHO" />
     <NavigationProperty Name="DON_VI_TINH" Relationship="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_DVT" FromRole="MAT_HANG" ToRole="DON_VI_TINH" />
     <NavigationProperty Name="LOAI_MAT_HANG" Relationship="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_LMH" FromRole="MAT_HANG" ToRole="LOAI_MAT_HANG" />
+  </EntityType>
+  <EntityType Name="NHA_CUNG_CAP">
+    <Key>
+      <PropertyRef Name="ID_NCC" />
+    </Key>
+    <Property Name="ID_NCC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_NCC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOA_DON_NHAP" Relationship="INVENTORY_MANAGEMENTModel.fk_HOA_DON_NHAP_NCC" FromRole="NHA_CUNG_CAP" ToRole="HOA_DON_NHAP" />
+  </EntityType>
+  <EntityType Name="PHIEU_CHUYEN_KHO">
+    <Key>
+      <PropertyRef Name="ID_PHIEU_CHUYEN_KHO" />
+    </Key>
+    <Property Name="ID_PHIEU_CHUYEN_KHO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_KHO_XUAT" Type="Int32" />
+    <Property Name="ID_KHO_NHAN" Type="Int32" />
+    <Property Name="ID_TK" Type="Int32" />
+    <Property Name="THOI_GIAN_CHUYEN_KHO" Type="DateTime" Precision="3" />
+    <Property Name="TONG_TIEN" Type="Double" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CT_PHIEU_CHUYEN_KHO" Relationship="INVENTORY_MANAGEMENTModel.fk_CT_PHIEU_CHUYEN_KHO_PHIEU_CHUYEN_KHO" FromRole="PHIEU_CHUYEN_KHO" ToRole="CT_PHIEU_CHUYEN_KHO" />
+    <NavigationProperty Name="KHO" Relationship="INVENTORY_MANAGEMENTModel.fk_PHIEU_CHUYEN_KHO_KHO_NHAN" FromRole="PHIEU_CHUYEN_KHO" ToRole="KHO" />
+    <NavigationProperty Name="KHO1" Relationship="INVENTORY_MANAGEMENTModel.fk_PHIEU_CHUYEN_KHO_KHO_XUAT" FromRole="PHIEU_CHUYEN_KHO" ToRole="KHO" />
+    <NavigationProperty Name="TAI_KHOAN" Relationship="INVENTORY_MANAGEMENTModel.fk_PHIEU_CHUYEN_KHO_NGUOI_XUAT" FromRole="PHIEU_CHUYEN_KHO" ToRole="TAI_KHOAN" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -82,8 +264,83 @@
     <Property Name="TEN_DANG_NHAP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="MAT_KHAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOA_DON_NHAP" Relationship="INVENTORY_MANAGEMENTModel.fk_HOA_DON_NHAP_NGUOI_NHAP" FromRole="TAI_KHOAN" ToRole="HOA_DON_NHAP" />
+    <NavigationProperty Name="HOA_DON_XUAT" Relationship="INVENTORY_MANAGEMENTModel.fk_HOA_DON_XUAT_NGUOI_XUAT" FromRole="TAI_KHOAN" ToRole="HOA_DON_XUAT" />
     <NavigationProperty Name="LOAI_TAI_KHOAN" Relationship="INVENTORY_MANAGEMENTModel.fk_TAI_KHOAN_LTK" FromRole="TAI_KHOAN" ToRole="LOAI_TAI_KHOAN" />
+    <NavigationProperty Name="PHIEU_CHUYEN_KHO" Relationship="INVENTORY_MANAGEMENTModel.fk_PHIEU_CHUYEN_KHO_NGUOI_XUAT" FromRole="TAI_KHOAN" ToRole="PHIEU_CHUYEN_KHO" />
   </EntityType>
+  <Association Name="fk_CT_HOA_DN_NHAP_MAT_HANG">
+    <End Type="INVENTORY_MANAGEMENTModel.MAT_HANG" Role="MAT_HANG" Multiplicity="1" />
+    <End Type="INVENTORY_MANAGEMENTModel.CT_HOA_DON_NHAP" Role="CT_HOA_DON_NHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAT_HANG">
+        <PropertyRef Name="ID_MAT_HANG" />
+      </Principal>
+      <Dependent Role="CT_HOA_DON_NHAP">
+        <PropertyRef Name="ID_MAT_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CT_HOA_DON_NHAP_HOA_DON_NHAP">
+    <End Type="INVENTORY_MANAGEMENTModel.HOA_DON_NHAP" Role="HOA_DON_NHAP" Multiplicity="1" />
+    <End Type="INVENTORY_MANAGEMENTModel.CT_HOA_DON_NHAP" Role="CT_HOA_DON_NHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA_DON_NHAP">
+        <PropertyRef Name="ID_HOA_DON_NHAP" />
+      </Principal>
+      <Dependent Role="CT_HOA_DON_NHAP">
+        <PropertyRef Name="ID_HOA_DON_NHAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CT_HOA_DON_XUAT_HOA_DON_XUAT">
+    <End Type="INVENTORY_MANAGEMENTModel.HOA_DON_XUAT" Role="HOA_DON_XUAT" Multiplicity="1" />
+    <End Type="INVENTORY_MANAGEMENTModel.CT_HOA_DON_XUAT" Role="CT_HOA_DON_XUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA_DON_XUAT">
+        <PropertyRef Name="ID_HOA_DON_XUAT" />
+      </Principal>
+      <Dependent Role="CT_HOA_DON_XUAT">
+        <PropertyRef Name="ID_HOA_DON_XUAT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CT_HOA_DON_XUAT_MAT_HANG">
+    <End Type="INVENTORY_MANAGEMENTModel.MAT_HANG" Role="MAT_HANG" Multiplicity="1" />
+    <End Type="INVENTORY_MANAGEMENTModel.CT_HOA_DON_XUAT" Role="CT_HOA_DON_XUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAT_HANG">
+        <PropertyRef Name="ID_MAT_HANG" />
+      </Principal>
+      <Dependent Role="CT_HOA_DON_XUAT">
+        <PropertyRef Name="ID_MAT_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CT_PHIEU_CHUYEN_KHO_MAT_HANG">
+    <End Type="INVENTORY_MANAGEMENTModel.MAT_HANG" Role="MAT_HANG" Multiplicity="1" />
+    <End Type="INVENTORY_MANAGEMENTModel.CT_PHIEU_CHUYEN_KHO" Role="CT_PHIEU_CHUYEN_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAT_HANG">
+        <PropertyRef Name="ID_MAT_HANG" />
+      </Principal>
+      <Dependent Role="CT_PHIEU_CHUYEN_KHO">
+        <PropertyRef Name="ID_MAT_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CT_PHIEU_CHUYEN_KHO_PHIEU_CHUYEN_KHO">
+    <End Type="INVENTORY_MANAGEMENTModel.PHIEU_CHUYEN_KHO" Role="PHIEU_CHUYEN_KHO" Multiplicity="1" />
+    <End Type="INVENTORY_MANAGEMENTModel.CT_PHIEU_CHUYEN_KHO" Role="CT_PHIEU_CHUYEN_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEU_CHUYEN_KHO">
+        <PropertyRef Name="ID_PHIEU_CHUYEN_KHO" />
+      </Principal>
+      <Dependent Role="CT_PHIEU_CHUYEN_KHO">
+        <PropertyRef Name="ID_PHIEU_CHUYEN_KHO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_MAT_HANG_DVT">
     <End Type="INVENTORY_MANAGEMENTModel.DON_VI_TINH" Role="DON_VI_TINH" Multiplicity="0..1" />
     <End Type="INVENTORY_MANAGEMENTModel.MAT_HANG" Role="MAT_HANG" Multiplicity="*" />
@@ -93,6 +350,90 @@
       </Principal>
       <Dependent Role="MAT_HANG">
         <PropertyRef Name="ID_DVT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_HOA_DON_NHAP_KHO_NHAP">
+    <End Type="INVENTORY_MANAGEMENTModel.KHO" Role="KHO" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.HOA_DON_NHAP" Role="HOA_DON_NHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHO">
+        <PropertyRef Name="ID_KHO" />
+      </Principal>
+      <Dependent Role="HOA_DON_NHAP">
+        <PropertyRef Name="ID_KHO_NHAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_HOA_DON_NHAP_NCC">
+    <End Type="INVENTORY_MANAGEMENTModel.NHA_CUNG_CAP" Role="NHA_CUNG_CAP" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.HOA_DON_NHAP" Role="HOA_DON_NHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHA_CUNG_CAP">
+        <PropertyRef Name="ID_NCC" />
+      </Principal>
+      <Dependent Role="HOA_DON_NHAP">
+        <PropertyRef Name="ID_NCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_HOA_DON_NHAP_NGUOI_NHAP">
+    <End Type="INVENTORY_MANAGEMENTModel.TAI_KHOAN" Role="TAI_KHOAN" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.HOA_DON_NHAP" Role="HOA_DON_NHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAI_KHOAN">
+        <PropertyRef Name="ID_TK" />
+      </Principal>
+      <Dependent Role="HOA_DON_NHAP">
+        <PropertyRef Name="ID_NGUOI_NHAP_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_HOA_DON_XUAT_NGUOI_NHAN">
+    <End Type="INVENTORY_MANAGEMENTModel.KHACH_HANG" Role="KHACH_HANG" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.HOA_DON_XUAT" Role="HOA_DON_XUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH_HANG">
+        <PropertyRef Name="ID_KH" />
+      </Principal>
+      <Dependent Role="HOA_DON_XUAT">
+        <PropertyRef Name="ID_NGUOI_NHAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_HOA_DON_XUAT_NGUOI_XUAT">
+    <End Type="INVENTORY_MANAGEMENTModel.TAI_KHOAN" Role="TAI_KHOAN" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.HOA_DON_XUAT" Role="HOA_DON_XUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAI_KHOAN">
+        <PropertyRef Name="ID_TK" />
+      </Principal>
+      <Dependent Role="HOA_DON_XUAT">
+        <PropertyRef Name="ID_NGUOI_XUAT_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PHIEU_CHUYEN_KHO_KHO_NHAN">
+    <End Type="INVENTORY_MANAGEMENTModel.KHO" Role="KHO" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.PHIEU_CHUYEN_KHO" Role="PHIEU_CHUYEN_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHO">
+        <PropertyRef Name="ID_KHO" />
+      </Principal>
+      <Dependent Role="PHIEU_CHUYEN_KHO">
+        <PropertyRef Name="ID_KHO_NHAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PHIEU_CHUYEN_KHO_KHO_XUAT">
+    <End Type="INVENTORY_MANAGEMENTModel.KHO" Role="KHO" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.PHIEU_CHUYEN_KHO" Role="PHIEU_CHUYEN_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHO">
+        <PropertyRef Name="ID_KHO" />
+      </Principal>
+      <Dependent Role="PHIEU_CHUYEN_KHO">
+        <PropertyRef Name="ID_KHO_XUAT" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -117,6 +458,18 @@
       </Principal>
       <Dependent Role="TAI_KHOAN">
         <PropertyRef Name="ID_LTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PHIEU_CHUYEN_KHO_NGUOI_XUAT">
+    <End Type="INVENTORY_MANAGEMENTModel.TAI_KHOAN" Role="TAI_KHOAN" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.PHIEU_CHUYEN_KHO" Role="PHIEU_CHUYEN_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAI_KHOAN">
+        <PropertyRef Name="ID_TK" />
+      </Principal>
+      <Dependent Role="PHIEU_CHUYEN_KHO">
+        <PropertyRef Name="ID_TK" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -1,12 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="INVENTORY_MANAGEMENTModelStoreContainer" CdmEntityContainer="INVENTORY_MANAGEMENTEntities">
+    <EntitySetMapping Name="CT_HOA_DON_NHAP">
+      <EntityTypeMapping TypeName="INVENTORY_MANAGEMENTModel.CT_HOA_DON_NHAP">
+        <MappingFragment StoreEntitySet="CT_HOA_DON_NHAP">
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="SO_LUONG" ColumnName="SO_LUONG" />
+          <ScalarProperty Name="ID_MAT_HANG" ColumnName="ID_MAT_HANG" />
+          <ScalarProperty Name="ID_HOA_DON_NHAP" ColumnName="ID_HOA_DON_NHAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_HOA_DON_XUAT">
+      <EntityTypeMapping TypeName="INVENTORY_MANAGEMENTModel.CT_HOA_DON_XUAT">
+        <MappingFragment StoreEntitySet="CT_HOA_DON_XUAT">
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="SO_LUONG" ColumnName="SO_LUONG" />
+          <ScalarProperty Name="ID_MAT_HANG" ColumnName="ID_MAT_HANG" />
+          <ScalarProperty Name="ID_HOA_DON_XUAT" ColumnName="ID_HOA_DON_XUAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_PHIEU_CHUYEN_KHO">
+      <EntityTypeMapping TypeName="INVENTORY_MANAGEMENTModel.CT_PHIEU_CHUYEN_KHO">
+        <MappingFragment StoreEntitySet="CT_PHIEU_CHUYEN_KHO">
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="SO_LUONG" ColumnName="SO_LUONG" />
+          <ScalarProperty Name="ID_MAT_HANG" ColumnName="ID_MAT_HANG" />
+          <ScalarProperty Name="ID_PHIEU_CHUYEN_KHO" ColumnName="ID_PHIEU_CHUYEN_KHO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="DON_VI_TINH">
       <EntityTypeMapping TypeName="INVENTORY_MANAGEMENTModel.DON_VI_TINH">
         <MappingFragment StoreEntitySet="DON_VI_TINH">
           <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
           <ScalarProperty Name="TEN_DVT" ColumnName="TEN_DVT" />
           <ScalarProperty Name="ID_DVT" ColumnName="ID_DVT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOA_DON_NHAP">
+      <EntityTypeMapping TypeName="INVENTORY_MANAGEMENTModel.HOA_DON_NHAP">
+        <MappingFragment StoreEntitySet="HOA_DON_NHAP">
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="TONG_TIEN" ColumnName="TONG_TIEN" />
+          <ScalarProperty Name="THOI_GIAN_NHAP" ColumnName="THOI_GIAN_NHAP" />
+          <ScalarProperty Name="ID_NGUOI_NHAP_HANG" ColumnName="ID_NGUOI_NHAP_HANG" />
+          <ScalarProperty Name="ID_NCC" ColumnName="ID_NCC" />
+          <ScalarProperty Name="ID_KHO_NHAP" ColumnName="ID_KHO_NHAP" />
+          <ScalarProperty Name="ID_HOA_DON_NHAP" ColumnName="ID_HOA_DON_NHAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOA_DON_XUAT">
+      <EntityTypeMapping TypeName="INVENTORY_MANAGEMENTModel.HOA_DON_XUAT">
+        <MappingFragment StoreEntitySet="HOA_DON_XUAT">
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="TONG_TIEN" ColumnName="TONG_TIEN" />
+          <ScalarProperty Name="THOI_GIAN_XUAT" ColumnName="THOI_GIAN_XUAT" />
+          <ScalarProperty Name="ID_NGUOI_XUAT_HANG" ColumnName="ID_NGUOI_XUAT_HANG" />
+          <ScalarProperty Name="ID_NGUOI_NHAN" ColumnName="ID_NGUOI_NHAN" />
+          <ScalarProperty Name="ID_HOA_DON_XUAT" ColumnName="ID_HOA_DON_XUAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACH_HANG">
+      <EntityTypeMapping TypeName="INVENTORY_MANAGEMENTModel.KHACH_HANG">
+        <MappingFragment StoreEntitySet="KHACH_HANG">
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="TEN_KH" ColumnName="TEN_KH" />
+          <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHOes">
+      <EntityTypeMapping TypeName="INVENTORY_MANAGEMENTModel.KHO">
+        <MappingFragment StoreEntitySet="KHO">
+          <ScalarProperty Name="DIA_CHI_KHO" ColumnName="DIA_CHI_KHO" />
+          <ScalarProperty Name="TONG_GIA_TRI" ColumnName="TONG_GIA_TRI" />
+          <ScalarProperty Name="TEN_KHO" ColumnName="TEN_KHO" />
+          <ScalarProperty Name="ID_KHO" ColumnName="ID_KHO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -40,6 +116,28 @@
           <ScalarProperty Name="ID_LMH" ColumnName="ID_LMH" />
           <ScalarProperty Name="ID_DVT" ColumnName="ID_DVT" />
           <ScalarProperty Name="TEN_MAT_HANG" ColumnName="TEN_MAT_HANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHA_CUNG_CAP">
+      <EntityTypeMapping TypeName="INVENTORY_MANAGEMENTModel.NHA_CUNG_CAP">
+        <MappingFragment StoreEntitySet="NHA_CUNG_CAP">
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="TEN_NCC" ColumnName="TEN_NCC" />
+          <ScalarProperty Name="ID_NCC" ColumnName="ID_NCC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEU_CHUYEN_KHO">
+      <EntityTypeMapping TypeName="INVENTORY_MANAGEMENTModel.PHIEU_CHUYEN_KHO">
+        <MappingFragment StoreEntitySet="PHIEU_CHUYEN_KHO">
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="TONG_TIEN" ColumnName="TONG_TIEN" />
+          <ScalarProperty Name="THOI_GIAN_CHUYEN_KHO" ColumnName="THOI_GIAN_CHUYEN_KHO" />
+          <ScalarProperty Name="ID_TK" ColumnName="ID_TK" />
+          <ScalarProperty Name="ID_KHO_NHAN" ColumnName="ID_KHO_NHAN" />
+          <ScalarProperty Name="ID_KHO_XUAT" ColumnName="ID_KHO_XUAT" />
+          <ScalarProperty Name="ID_PHIEU_CHUYEN_KHO" ColumnName="ID_PHIEU_CHUYEN_KHO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
