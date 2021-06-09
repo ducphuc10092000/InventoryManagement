@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:InventoryManagement.ViewModel"
+                    xmlns:viewmodel_Login="clr-namespace:InventoryManagement.ViewModel.Login"
+                    xmlns:viewmodel_Product="clr-namespace:InventoryManagement.ViewModel.Product">
+    <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+    <viewmodel_Login:Login_WD_ViewModel x:Key="Login_WD_VM"></viewmodel_Login:Login_WD_ViewModel>
+    <viewmodel_Product:Product_UC_ViewModel x:Key="Product_UC_VM"></viewmodel_Product:Product_UC_ViewModel>
+    <viewmodel_Product:AddNewProduct_WD_ViewModel x:Key="AddNewProduct_WD_VM"></viewmodel_Product:AddNewProduct_WD_ViewModel>
+</ResourceDictionary>

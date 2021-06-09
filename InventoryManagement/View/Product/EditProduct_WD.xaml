@@ -1,0 +1,194 @@
+﻿<Window x:Class="InventoryManagement.View.Product.EditProduct_WD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Name="editProduct_WD"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        DataContext="{StaticResource AddNewProduct_WD_VM}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Title="EditProduct"
+        Height="650"
+        Width="900">
+    <Border BorderBrush="#FF41A27A"
+            Background="#FF41A27A"
+            BorderThickness="10"
+            CornerRadius="20">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <materialDesign:ColorZone Background="#FF41A27A"
+                                      Grid.Row="0"
+                                      CornerRadius="10">
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center"
+                                   FontSize="25"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   Margin="10,0,0,0">
+                        Chỉnh sửa sản phẩm
+                        </TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
+            <Border Grid.Row="1"
+                    Margin="5"
+                    BorderBrush="White"
+                    BorderThickness="5"
+                    CornerRadius="10">
+                <materialDesign:Card Background="#FFFBFBFB"
+                                     materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="550"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Vertical"
+                                    Grid.Column="0">
+                            <TextBox materialDesign:HintAssist.Hint="Tên sản phẩm"
+                                     Background="White"
+                                     materialDesign:ValidationAssist.HasError="True"
+                                     Height="50"
+                                     Width="500"
+                                     Text="{Binding selectedProductName}"
+                                     Padding="5,-5,0,0"
+                                     Margin="0,10,0,0"
+                                     FontSize="20"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <ComboBox materialDesign:HintAssist.Hint="Loại mặt hàng"
+                                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                              ItemsSource="{Binding ProductTypeList,UpdateSourceTrigger=Default,NotifyOnSourceUpdated=True,Mode=TwoWay}"
+                                              Width="300"
+                                              IsEditable="True"
+                                              Text="{Binding selectedProductTypeName}"
+                                              FontSize="20"
+                                              Height="50"
+                                              Padding="0,0,0,-10"
+                                              Margin="25,10,0,20">
+                                    </ComboBox>
+                                    <Button Height="40"
+                                            Width="100"
+                                            Command="{Binding Open_AddNewProductType_WD_Command,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
+                                            Background="#FFADD8E6"
+                                            Margin="10,0,0,0">
+                                        Thêm
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <ComboBox materialDesign:HintAssist.Hint="Đơn vị tính"
+                                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                              ItemsSource="{Binding ProductUnitList,UpdateSourceTrigger=Default,NotifyOnSourceUpdated=True,Mode=TwoWay}"
+                                              Width="300"
+                                              IsEditable="True"
+                                              Text="{Binding selectedProductUnitName}"
+                                              FontSize="20"
+                                              Height="50"
+                                              Padding="0,0,0,-10"
+                                              Margin="25,10,0,20">
+                                    </ComboBox>
+                                    <Button Height="40"
+                                            Width="100"
+                                            Command="{Binding Open_AddNewProductUnit_WD_Command,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
+                                            Background="#FFADD8E6"
+                                            Margin="10,0,0,0">
+                                        Thêm
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                            <TextBox materialDesign:HintAssist.Hint="Đơn giá nhập"
+                                     Background="White"
+                                     Height="50"
+                                     Width="500"
+                                     Text="{Binding selectedProductPrice}"
+                                     Padding="5,-5,0,0"
+                                     Margin="0,20,0,0"
+                                     FontSize="20"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox materialDesign:HintAssist.Hint="Mô tả"
+                                     Text="{Binding selectedProductDescription}"
+                                     Height="170"
+                                     Padding="0,-10,0,0"
+                                     TextWrapping="Wrap"
+                                     AcceptsReturn="True"
+                                     FontSize="20"
+                                     Margin="25,10,25,30"
+                                     TextAlignment="Left"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                <Button Height="40"
+                                        Width="150"
+                                        Margin="30,0,0,0"
+                                        Background="#FFADD8E6"
+                                        Command="{Binding Confirm_EditProduct_Command}"
+                                        CommandParameter="{Binding ElementName=editProduct_WD}"
+                                        Style="{DynamicResource MaterialDesignRaisedButton}"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                                    Chỉnh sửa
+                                </Button>
+                                <Button Height="auto"
+                                        Width="150"
+                                        Command="{Binding QuitCommand}"
+                                        CommandParameter="{Binding ElementName=editProduct_WD}"
+                                        Style="{DynamicResource MaterialDesignRaisedButton}"
+                                        Margin="100,0,0,0"
+                                        Background="#FFF3A2A2"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                                    Thoát
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="300"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0"
+                                    Background="White"
+                                    Margin="5,5,5,5"
+                                    BorderBrush="Black"
+                                    BorderThickness="2">
+                                <Image Margin="2,2,2,2"
+                                       Source="{Binding AvatarSource}"></Image>
+                            </Border>
+                            <StackPanel Grid.Row="1"
+                                        Orientation="Horizontal"
+                                        Margin="0,0,0,60"
+                                        HorizontalAlignment="Center">
+                                <Button Style="{DynamicResource MaterialDesignRaisedButton}"
+                                        Background="#FFADD8E6"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                        Content="Chọn ảnh"
+                                        Command="{Binding ChangePictureCommand}"
+                                        Height="30"
+                                        Width="100"></Button>
+                                <Button Style="{DynamicResource MaterialDesignRaisedButton}"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                        Content="Xóa ảnh"
+                                        Command="{Binding DeletePictureCommand}"
+                                        Background="#FFF3A2A2"
+                                        Height="30"
+                                        Width="100"
+                                        Margin="50,0,0,0"></Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </materialDesign:Card>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

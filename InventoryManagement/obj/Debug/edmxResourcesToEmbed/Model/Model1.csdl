@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="INVENTORY_MANAGEMENTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="INVENTORY_MANAGEMENTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DON_VI_TINH" EntityType="INVENTORY_MANAGEMENTModel.DON_VI_TINH" />
+    <EntitySet Name="LOAI_MAT_HANG" EntityType="INVENTORY_MANAGEMENTModel.LOAI_MAT_HANG" />
+    <EntitySet Name="LOAI_TAI_KHOAN" EntityType="INVENTORY_MANAGEMENTModel.LOAI_TAI_KHOAN" />
+    <EntitySet Name="MAT_HANG" EntityType="INVENTORY_MANAGEMENTModel.MAT_HANG" />
+    <EntitySet Name="sysdiagrams" EntityType="INVENTORY_MANAGEMENTModel.sysdiagram" />
+    <EntitySet Name="TAI_KHOAN" EntityType="INVENTORY_MANAGEMENTModel.TAI_KHOAN" />
+    <AssociationSet Name="fk_MAT_HANG_DVT" Association="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_DVT">
+      <End Role="DON_VI_TINH" EntitySet="DON_VI_TINH" />
+      <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MAT_HANG_LMH" Association="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_LMH">
+      <End Role="LOAI_MAT_HANG" EntitySet="LOAI_MAT_HANG" />
+      <End Role="MAT_HANG" EntitySet="MAT_HANG" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TAI_KHOAN_LTK" Association="INVENTORY_MANAGEMENTModel.fk_TAI_KHOAN_LTK">
+      <End Role="LOAI_TAI_KHOAN" EntitySet="LOAI_TAI_KHOAN" />
+      <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DON_VI_TINH">
+    <Key>
+      <PropertyRef Name="ID_DVT" />
+    </Key>
+    <Property Name="ID_DVT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_DVT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MAT_HANG" Relationship="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_DVT" FromRole="DON_VI_TINH" ToRole="MAT_HANG" />
+  </EntityType>
+  <EntityType Name="LOAI_MAT_HANG">
+    <Key>
+      <PropertyRef Name="ID_LMH" />
+    </Key>
+    <Property Name="ID_LMH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_LOAI_MAT_HANG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MAT_HANG" Relationship="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_LMH" FromRole="LOAI_MAT_HANG" ToRole="MAT_HANG" />
+  </EntityType>
+  <EntityType Name="LOAI_TAI_KHOAN">
+    <Key>
+      <PropertyRef Name="ID_LTK" />
+    </Key>
+    <Property Name="ID_LTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_LTK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TAI_KHOAN" Relationship="INVENTORY_MANAGEMENTModel.fk_TAI_KHOAN_LTK" FromRole="LOAI_TAI_KHOAN" ToRole="TAI_KHOAN" />
+  </EntityType>
+  <EntityType Name="MAT_HANG">
+    <Key>
+      <PropertyRef Name="ID_MAT_HANG" />
+    </Key>
+    <Property Name="TEN_MAT_HANG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ID_DVT" Type="Int32" />
+    <Property Name="ID_LMH" Type="Int32" />
+    <Property Name="SO_LUONG_TON" Type="Int32" />
+    <Property Name="DON_GIA" Type="Double" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AVATAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ACTIVE" Type="Boolean" />
+    <Property Name="ID_MAT_HANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="DON_VI_TINH" Relationship="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_DVT" FromRole="MAT_HANG" ToRole="DON_VI_TINH" />
+    <NavigationProperty Name="LOAI_MAT_HANG" Relationship="INVENTORY_MANAGEMENTModel.fk_MAT_HANG_LMH" FromRole="MAT_HANG" ToRole="LOAI_MAT_HANG" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TAI_KHOAN">
+    <Key>
+      <PropertyRef Name="ID_TK" />
+    </Key>
+    <Property Name="ID_TK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_LTK" Type="Int32" />
+    <Property Name="TEN_DANG_NHAP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MAT_KHAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LOAI_TAI_KHOAN" Relationship="INVENTORY_MANAGEMENTModel.fk_TAI_KHOAN_LTK" FromRole="TAI_KHOAN" ToRole="LOAI_TAI_KHOAN" />
+  </EntityType>
+  <Association Name="fk_MAT_HANG_DVT">
+    <End Type="INVENTORY_MANAGEMENTModel.DON_VI_TINH" Role="DON_VI_TINH" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.MAT_HANG" Role="MAT_HANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DON_VI_TINH">
+        <PropertyRef Name="ID_DVT" />
+      </Principal>
+      <Dependent Role="MAT_HANG">
+        <PropertyRef Name="ID_DVT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MAT_HANG_LMH">
+    <End Type="INVENTORY_MANAGEMENTModel.LOAI_MAT_HANG" Role="LOAI_MAT_HANG" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.MAT_HANG" Role="MAT_HANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAI_MAT_HANG">
+        <PropertyRef Name="ID_LMH" />
+      </Principal>
+      <Dependent Role="MAT_HANG">
+        <PropertyRef Name="ID_LMH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TAI_KHOAN_LTK">
+    <End Type="INVENTORY_MANAGEMENTModel.LOAI_TAI_KHOAN" Role="LOAI_TAI_KHOAN" Multiplicity="0..1" />
+    <End Type="INVENTORY_MANAGEMENTModel.TAI_KHOAN" Role="TAI_KHOAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAI_TAI_KHOAN">
+        <PropertyRef Name="ID_LTK" />
+      </Principal>
+      <Dependent Role="TAI_KHOAN">
+        <PropertyRef Name="ID_LTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
