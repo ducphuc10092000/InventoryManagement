@@ -26,7 +26,6 @@ namespace InventoryManagement.Model
         private DataProvider()
         {
             DB = new INVENTORY_MANAGEMENTEntities();
-
         }
     }
 }

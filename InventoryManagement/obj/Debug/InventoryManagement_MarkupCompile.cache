@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\InventoryManagement\InventoryManagement\InventoryManagement\App.xaml
-15142282841
+281858599003
 2-1556844510
-442069562591
+75-707267280
 24447808081
-MainWindow.xaml;ResourceXAML\MainResource.xaml;View\Account\Account_UC.xaml;View\Dashboard\Dashboard_UC.xaml;View\Export\Export_UC.xaml;View\Import\Import_UC.xaml;View\Inventory\Inventory_UC.xaml;View\Login\Login_WD.xaml;View\Product\AddNewProduct_WD.xaml;View\Product\EditProduct_WD.xaml;View\Product\ProductType\AddNewProductType_WD.xaml;View\Product\ProductUnit\AddNewProductUnit_WD.xaml;View\Product\Product_UC.xaml;View\Report\Report_UC.xaml;View\Transfer\Transfer_UC.xaml;
+MainWindow.xaml;ResourceXAML\MainResource.xaml;View\Account\Account_AdminSide_UC.xaml;View\Account\Account_UC.xaml;View\Account\Account_UserSide_UC.xaml;View\Dashboard\Dashboard_UC.xaml;View\Export\AddNewExportBill_WD.xaml;View\Export\Export_UC.xaml;View\Import\AddNewImportBill_WD.xaml;View\Import\EditImportBill_WD.xaml;View\Import\Import_UC.xaml;View\Inventory\AddNewInventory_WD.xaml;View\Inventory\EditInventory_WD.xaml;View\Inventory\InventoryList_WD.xaml;View\Inventory\Inventory_UC.xaml;View\Login\Login_WD.xaml;View\Product\AddNewProduct_WD.xaml;View\Product\EditProduct_WD.xaml;View\Product\ProductList_WD.xaml;View\Product\ProductType\AddNewProductType_WD.xaml;View\Product\ProductUnit\AddNewProductUnit_WD.xaml;View\Product\Product_UC.xaml;View\Provider\AddNewProvider_WD.xaml;View\Provider\EditProvider_WD.xaml;View\Provider\ProviderList_WD.xaml;View\Report\Report_UC.xaml;View\Setting\Setting_UC.xaml;View\Transfer\Transfer_UC.xaml;
 
 False
 

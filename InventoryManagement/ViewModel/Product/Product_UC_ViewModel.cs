@@ -30,10 +30,59 @@ namespace InventoryManagement.ViewModel.Product
         public ICommand Open_EditProductWD_Command { get; set; }
         #endregion
 
+        #region Declare Command ProductList_WD 
+        public ICommand QuitCommand { get; set; }
+        public ICommand DoubleClickSelectProductCommand { get; set; }
+        #endregion
+
+        #region Binding TEXT ProductList_WD
+        private PRODUCT _selectedProduct;
+        public PRODUCT selectedProduct { get => _selectedProduct; set { _selectedProduct = value; OnPropertyChanged(); } }
+
+        #endregion
         public Product_UC_ViewModel()
         {
             //Load list PRODUCT
-            LoadProductList();
+            //LoadProductList();
+            #region handling COmmand Button ProductList_WD
+            QuitCommand = new RelayCommand<Window>((p) =>
+            {
+                //if (AccountPower == 0 || AccountPower == 1)
+                //{
+                //    MessageBoxResult result = MessageBox.Show("Bạn không đủ quyền truy cập vào chức năng này!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                //    return false;
+                //}
+
+
+                return true;
+            }, (p) =>
+            {
+                MessageBoxResult result = MessageBox.Show("Những thông tin bạn nhập có thể chưa được lưu!!!\nBạn có chắc chắn muốn thoát!!!", "Cảnh báo", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    p.Close();
+                }
+                else
+                {
+                    return;
+                }
+            });
+
+            DoubleClickSelectProductCommand = new RelayCommand<ProductList_WD>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                if (selectedProduct == null)
+                {
+                    return;
+                }
+                else
+                {
+                    p.Close();
+                }
+            });
+            #endregion
 
             #region Handling command button
             Open_AddNewProduct_WD_Command = new RelayCommand<object>((p) =>
@@ -46,6 +95,7 @@ namespace InventoryManagement.ViewModel.Product
                 addNewProduct_WD.Close();
                 LoadProductList();
             });
+
             Open_EditProductWD_Command = new RelayCommand<object>((p) =>
             {
                 return true;
@@ -58,6 +108,7 @@ namespace InventoryManagement.ViewModel.Product
                 editProduct_WD.Close();
                 LoadProductList();
             });
+
             ProductFindCommand = new RelayCommand<object>((p) =>
             {
                 return true;
@@ -88,6 +139,26 @@ namespace InventoryManagement.ViewModel.Product
 
                 PRODUCTLISTDTG.Add(temp_product);
             }
+        }
+
+        public void LoadProductListBaseID(int selectedInventoryID)
+        {
+
+            ObservableCollection<CT_KHO_MAT_HANG> INVENTORYPRODUCTDETAILLIST = new ObservableCollection<CT_KHO_MAT_HANG>(DataProvider.Ins.DB.CT_KHO_MAT_HANG.Where(x=>x.SO_LUONG > 0));
+
+            PRODUCTLISTDTG = new ObservableCollection<PRODUCT>();
+
+            foreach (var item in INVENTORYPRODUCTDETAILLIST)
+            {
+                PRODUCT temp = new PRODUCT();
+
+                if(item.ID_KHO == selectedInventoryID)
+                {
+                    temp.product = item.MAT_HANG;
+                    temp.product.SO_LUONG_TON = item.SO_LUONG;
+                    PRODUCTLISTDTG.Add(temp);
+                }
+            }    
         }
     }
 }

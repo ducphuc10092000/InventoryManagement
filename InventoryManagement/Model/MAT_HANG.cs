@@ -18,8 +18,9 @@ namespace InventoryManagement.Model
         public MAT_HANG()
         {
             this.CT_HOA_DON_NHAP = new HashSet<CT_HOA_DON_NHAP>();
-            this.CT_HOA_DON_XUAT = new HashSet<CT_HOA_DON_XUAT>();
+            this.CT_KHO_MAT_HANG = new HashSet<CT_KHO_MAT_HANG>();
             this.CT_PHIEU_CHUYEN_KHO = new HashSet<CT_PHIEU_CHUYEN_KHO>();
+            this.CT_HOA_DON_XUAT = new HashSet<CT_HOA_DON_XUAT>();
         }
     
         public string TEN_MAT_HANG { get; set; }
@@ -35,10 +36,12 @@ namespace InventoryManagement.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_HOA_DON_NHAP> CT_HOA_DON_NHAP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_HOA_DON_XUAT> CT_HOA_DON_XUAT { get; set; }
+        public virtual ICollection<CT_KHO_MAT_HANG> CT_KHO_MAT_HANG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_PHIEU_CHUYEN_KHO> CT_PHIEU_CHUYEN_KHO { get; set; }
         public virtual DON_VI_TINH DON_VI_TINH { get; set; }
         public virtual LOAI_MAT_HANG LOAI_MAT_HANG { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_HOA_DON_XUAT> CT_HOA_DON_XUAT { get; set; }
     }
 }

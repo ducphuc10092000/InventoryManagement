@@ -20,6 +20,7 @@ namespace InventoryManagement.ViewModel.Product
         #region Command EDITPRODUCT_WD
         public ICommand Confirm_EditProduct_Command { get; set; }
         #endregion
+
         #region Binding TEXT EDITPRODUCT_WD
         private int _selectedProductID;
         public int selectedProductID { get => _selectedProductID; set { _selectedProductID = value; OnPropertyChanged(); } }
@@ -38,6 +39,17 @@ namespace InventoryManagement.ViewModel.Product
         public string selectedProductDescription { get => _selectedProductDescription; set { _selectedProductDescription = value; OnPropertyChanged(); } }
         #endregion
 
+
+        #region Command ADDNEWPRODUCT_WD
+        public ICommand QuitCommand { get; set; }
+        public ICommand AddNewProductCommand { get; set; }
+        public ICommand ChangePictureCommand { get; set; }
+        public ICommand DeletePictureCommand { get; set; }
+
+        public ICommand Open_AddNewProductType_WD_Command { get; set; }
+
+        public ICommand Open_AddNewProductUnit_WD_Command { get; set; }
+        #endregion
 
         #region Binding TEXT ADDNEWPRODUCT_WD
         private string _ProductName;
@@ -75,16 +87,7 @@ namespace InventoryManagement.ViewModel.Product
         public ObservableCollection<string> ProductUnitList { get => _ProductUnitList; set { _ProductUnitList = value; OnPropertyChanged(); } }
         #endregion
 
-        #region Command ADDNEWPRODUCT_WD
-        public ICommand QuitCommand { get; set; }
-        public ICommand AddNewProductCommand { get; set; }
-        public ICommand ChangePictureCommand { get; set; }
-        public ICommand DeletePictureCommand { get; set; }
 
-        public ICommand Open_AddNewProductType_WD_Command { get; set; }
-
-        public ICommand Open_AddNewProductUnit_WD_Command { get; set; }
-        #endregion
 
         #region Binding TEXT ADDNEWPRODUCT_TYPE_WD
         private string _newProductTypeName;
@@ -368,7 +371,7 @@ namespace InventoryManagement.ViewModel.Product
             selectedProductDescription = selectedProduct.product.GHI_CHU;
             Avatar = selectedProduct.product.AVATAR;
 
-            if (Avatar == null)
+            if (string.IsNullOrEmpty(Avatar))
             {
                 AvatarSource = null;
             }

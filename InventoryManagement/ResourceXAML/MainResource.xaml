@@ -2,9 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewmodel="clr-namespace:InventoryManagement.ViewModel"
                     xmlns:viewmodel_Login="clr-namespace:InventoryManagement.ViewModel.Login"
-                    xmlns:viewmodel_Product="clr-namespace:InventoryManagement.ViewModel.Product">
+                    xmlns:viewmodel_Product="clr-namespace:InventoryManagement.ViewModel.Product"
+                    xmlns:viewmodel_Inventory="clr-namespace:InventoryManagement.ViewModel.Inventory"
+                    xmlns:viewmodel_Import="clr-namespace:InventoryManagement.ViewModel.Import"
+                    xmlns:viewmodel_Export="clr-namespace:InventoryManagement.ViewModel.Export"
+                    xmlns:viewmodel_Provider="clr-namespace:InventoryManagement.ViewModel.Provider"
+                    xmlns:viewmodel_Acocunt="clr-namespace:InventoryManagement.ViewModel.Account">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel_Login:Login_WD_ViewModel x:Key="Login_WD_VM"></viewmodel_Login:Login_WD_ViewModel>
     <viewmodel_Product:Product_UC_ViewModel x:Key="Product_UC_VM"></viewmodel_Product:Product_UC_ViewModel>
     <viewmodel_Product:AddNewProduct_WD_ViewModel x:Key="AddNewProduct_WD_VM"></viewmodel_Product:AddNewProduct_WD_ViewModel>
+    <viewmodel_Inventory:Inventory_UC_ViewModel x:Key="Inventory_UC_VM"></viewmodel_Inventory:Inventory_UC_ViewModel>
+    <viewmodel_Inventory:AddNewInventory_WD_Viewmodel x:Key="AddNewInventory_WD_VM"></viewmodel_Inventory:AddNewInventory_WD_Viewmodel>
+    <viewmodel_Import:Import_UC_ViewModel x:Key="Import_UC_VM"></viewmodel_Import:Import_UC_ViewModel>
+    <viewmodel_Import:AddNewImportBill_WD_ViewModel x:Key="AddNewImportBill_WD_VM"></viewmodel_Import:AddNewImportBill_WD_ViewModel>
+    <viewmodel_Export:Export_UC_ViewModel x:Key="Export_UC_VM"></viewmodel_Export:Export_UC_ViewModel>
+    <viewmodel_Export:AddNewExportBill_WD_ViewModel x:Key="AddNewExportBill_WD_VM"></viewmodel_Export:AddNewExportBill_WD_ViewModel>
+    <viewmodel_Provider:ProviderList_WD_ViewModel x:Key="ProviderList_WD_VM"></viewmodel_Provider:ProviderList_WD_ViewModel>
+    <viewmodel_Acocunt:Account_UC_ViewModel x:Key="Account_UC_VM"></viewmodel_Acocunt:Account_UC_ViewModel>
 </ResourceDictionary>

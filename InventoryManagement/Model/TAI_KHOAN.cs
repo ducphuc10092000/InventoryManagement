@@ -18,8 +18,8 @@ namespace InventoryManagement.Model
         public TAI_KHOAN()
         {
             this.HOA_DON_NHAP = new HashSet<HOA_DON_NHAP>();
-            this.HOA_DON_XUAT = new HashSet<HOA_DON_XUAT>();
             this.PHIEU_CHUYEN_KHO = new HashSet<PHIEU_CHUYEN_KHO>();
+            this.HOA_DON_XUAT = new HashSet<HOA_DON_XUAT>();
         }
     
         public int ID_TK { get; set; }
@@ -27,13 +27,15 @@ namespace InventoryManagement.Model
         public string TEN_DANG_NHAP { get; set; }
         public string MAT_KHAU { get; set; }
         public string GHI_CHU { get; set; }
+        public Nullable<int> ID_NV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOA_DON_NHAP> HOA_DON_NHAP { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOA_DON_XUAT> HOA_DON_XUAT { get; set; }
         public virtual LOAI_TAI_KHOAN LOAI_TAI_KHOAN { get; set; }
+        public virtual NHAN_VIEN NHAN_VIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEU_CHUYEN_KHO> PHIEU_CHUYEN_KHO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HOA_DON_XUAT> HOA_DON_XUAT { get; set; }
     }
 }

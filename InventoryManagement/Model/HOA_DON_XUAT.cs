@@ -23,13 +23,15 @@ namespace InventoryManagement.Model
         public int ID_HOA_DON_XUAT { get; set; }
         public Nullable<int> ID_NGUOI_NHAN { get; set; }
         public Nullable<int> ID_NGUOI_XUAT_HANG { get; set; }
-        public Nullable<System.DateTime> THOI_GIAN_XUAT { get; set; }
         public Nullable<double> TONG_TIEN { get; set; }
         public string GHI_CHU { get; set; }
+        public Nullable<int> ID_KHO_XUAT { get; set; }
+        public string THOI_GIAN_XUAT { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_HOA_DON_XUAT> CT_HOA_DON_XUAT { get; set; }
+        public virtual KHO KHO { get; set; }
         public virtual KHACH_HANG KHACH_HANG { get; set; }
         public virtual TAI_KHOAN TAI_KHOAN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_HOA_DON_XUAT> CT_HOA_DON_XUAT { get; set; }
     }
 }

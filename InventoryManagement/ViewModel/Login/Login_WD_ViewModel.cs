@@ -14,6 +14,9 @@ namespace InventoryManagement.ViewModel.Login
     public class Login_WD_ViewModel : BaseViewModel
     {
         #region Thuộc tính Binding
+
+        public int IDTK;
+
         private string _userName;
         public string userName { get => _userName; set { _userName = value; OnPropertyChanged(nameof(userName)); } }
 
@@ -92,6 +95,8 @@ namespace InventoryManagement.ViewModel.Login
                     return;
 
                 var mainVM = mainWindow.DataContext as MainViewModel;
+                mainVM.loggedAccount = account;
+                mainVM.ChucNang = 0;
                 mainWindow.ShowDialog();
 
 

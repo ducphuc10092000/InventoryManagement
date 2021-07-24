@@ -14,6 +14,7 @@
         xmlns:Report_View="clr-namespace:InventoryManagement.View.Report"
         xmlns:Transfer_View="clr-namespace:InventoryManagement.View.Transfer"
         xmlns:Account_View="clr-namespace:InventoryManagement.View.Account"
+        xmlns:Setting_View="clr-namespace:InventoryManagement.View.Setting"
         DataContext="{StaticResource MainVM}"
         x:Name="MainWD"
         WindowStyle="None"
@@ -600,6 +601,62 @@
                             </Style>
                         </Button.Style>
                     </Button>
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnManageSettingCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/settings.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Cài đặt"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="8">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="8">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF4C7DD6"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                 </StackPanel>
             </Border>
             
@@ -745,6 +802,23 @@
                             </Style>
                         </Grid.Style>
                         <Account_View:Account_UC></Account_View:Account_UC>
+                    </Grid>
+                    <!--View Setting-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="8">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <Setting_View:Setting_UC></Setting_View:Setting_UC>
                     </Grid>
                 </Grid>
             </Border>

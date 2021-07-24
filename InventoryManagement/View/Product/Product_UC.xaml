@@ -205,7 +205,7 @@
                                             Binding="{Binding product.TEN_MAT_HANG}"
                                             Width="250"></DataGridTextColumn>
                         <!--Tỉnh thành-->
-                        <DataGridTextColumn Header="Đơn giá"
+                        <DataGridTextColumn Header="Đơn giá nhập"
                                             Binding="{Binding product.DON_GIA}"
                                             Width="150"></DataGridTextColumn>
 

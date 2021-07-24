@@ -18,6 +18,7 @@ namespace InventoryManagement.Model
         public int ID_MAT_HANG { get; set; }
         public Nullable<int> SO_LUONG { get; set; }
         public string GHI_CHU { get; set; }
+        public Nullable<long> DON_GIA_XUAT { get; set; }
     
         public virtual HOA_DON_XUAT HOA_DON_XUAT { get; set; }
         public virtual MAT_HANG MAT_HANG { get; set; }

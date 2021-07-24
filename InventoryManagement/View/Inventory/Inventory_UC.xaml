@@ -7,6 +7,7 @@
              xmlns:local="clr-namespace:InventoryManagement.View.Inventory"
              mc:Ignorable="d" 
              Background="White"
+             DataContext="{StaticResource Inventory_UC_VM}"
              d:DesignHeight="900" d:DesignWidth="1350">
     <Grid>
         <Grid.RowDefinitions>
@@ -84,10 +85,10 @@
                 BorderThickness="2"
                 CornerRadius="10">
             <ScrollViewer Margin="5">
-                <DataGrid ItemsSource="{Binding PRODUCTLISTDTG,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged}"
+                <DataGrid ItemsSource="{Binding INVENTORYLISTDTG,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged}"
                           AlternatingRowBackground="#6c757d"
                           IsReadOnly="True"
-                          SelectedItem="{Binding selectedProduct,UpdateSourceTrigger=PropertyChanged,
+                          SelectedItem="{Binding selectedInventory,UpdateSourceTrigger=PropertyChanged,
                             NotifyOnSourceUpdated=True}"
                           ScrollViewer.VerticalScrollBarVisibility="Auto"
                           AutoGenerateColumns="False"
@@ -127,7 +128,7 @@
                         <!--Cột Mã DTQ-->
                         <DataGridTextColumn Header="Mã kho"
                                             Width="100"
-                                            Binding="{Binding product.ID_MAT_HANG}">
+                                            Binding="{Binding kho.ID_KHO}">
                         </DataGridTextColumn>
                         <!--Cột THAO TÁC-->
                         <DataGridTemplateColumn Header="Thao tác"
@@ -144,9 +145,9 @@
                                         <Button Grid.Column="0"
                                                 Background="{x:Null}"
                                                 BorderThickness="0"
-                                                Command="{Binding Path=DataContext.Open_EditProductWD_Command,
+                                                Command="{Binding Path=DataContext.Open_EditInventory_WD_Command,
                                                 RelativeSource= {RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
-                                                CommandParameter="{Binding Path= product.ID_MAT_HANG}"
+                                                CommandParameter="{Binding Path= kho.ID_KHO}"
                                                 Height="Auto"
                                                 Width="20"
                                                 Margin="6,0,5,0">
@@ -170,9 +171,9 @@
                                         <Button Grid.Column="1"
                                                 Background="{x:Null}"
                                                 BorderThickness="0"
-                                                Command="{Binding Path=DataContext.DeleteProductCommand,
+                                                Command="{Binding Path=DataContext.DeleteInventoryCommand,
                                                 RelativeSource= {RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
-                                                CommandParameter="{Binding Path=product.ID_MAT_HANG}"
+                                                CommandParameter="{Binding Path=kho.ID_KHO}"
                                                 Height="Auto"
                                                 Width="20"
                                                 Margin="11,0,0,0">
@@ -199,16 +200,20 @@
                         </DataGridTemplateColumn>
                         <!--Cột TÊN điểm tham quan-->
                         <DataGridTextColumn Header="Tên kho"
-                                            Binding="{Binding product.TEN_MAT_HANG}"
-                                            Width="250"></DataGridTextColumn>
+                                            Binding="{Binding kho.TEN_KHO}"
+                                            Width="200"></DataGridTextColumn>
                         <!--Tỉnh thành-->
                         <DataGridTextColumn Header="Tổng giá trị"
-                                            Binding="{Binding product.DON_GIA}"
+                                            Binding="{Binding kho.TONG_GIA_TRI}"
                                             Width="200"></DataGridTextColumn>
                         <!--Tỉnh thành-->
                         <DataGridTextColumn Header="Địa chỉ kho"
-                                            Binding="{Binding product.DON_GIA}"
-                                            Width="600"></DataGridTextColumn>
+                                            Binding="{Binding kho.DIA_CHI_KHO}"
+                                            Width="400"></DataGridTextColumn>
+                        <!--Tỉnh thành-->
+                        <DataGridTextColumn Header="Mô tả"
+                                            Binding="{Binding kho.GHI_CHU}"
+                                            Width="300"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>

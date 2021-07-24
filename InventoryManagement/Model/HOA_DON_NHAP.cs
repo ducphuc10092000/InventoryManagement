@@ -24,9 +24,9 @@ namespace InventoryManagement.Model
         public Nullable<int> ID_KHO_NHAP { get; set; }
         public Nullable<int> ID_NCC { get; set; }
         public Nullable<int> ID_NGUOI_NHAP_HANG { get; set; }
-        public Nullable<System.DateTime> THOI_GIAN_NHAP { get; set; }
         public Nullable<double> TONG_TIEN { get; set; }
         public string GHI_CHU { get; set; }
+        public string THOI_GIAN_NHAP { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_HOA_DON_NHAP> CT_HOA_DON_NHAP { get; set; }
